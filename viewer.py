@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 
 class ElementData:
     #クラスの初期化はファイルの読み込みと同時に行う
@@ -26,14 +27,13 @@ class ElementData:
             self.xelm[i] = text[1]
             self.yelm[i] = text[2]
             self.ten[i] = int(text[3])
-            for j in range(0,self.ten[i]):
+            for j in range(self.ten[i]):
                 self.node[i][j] = int(text[j+4])
 
         text = f.readline() #節点数
         text = f.readline()
         text = text.strip()
         self.nnode = int(text)
-
         #配列の作成&初期化
         self.xnode = np.zeros(self.nnode,dtype=np.float64)
         self.ynode = np.zeros(self.nnode,dtype=np.float64)
@@ -57,8 +57,8 @@ def plot_figure(ELEM):
     for i in range(0,ELEM.nelm):
         for j in range(0,ELEM.ten[i]):
             node = ELEM.node[i][j]
-            _x.append(ELEM.xnode[node-1])
-            _y.append(ELEM.ynode[node-1]) 
+            _x.append(ELEM.xnode[node])
+            _y.append(ELEM.ynode[node]) 
 
         ax.fill(_x,_y,edgecolor="black",facecolor="white")
         _x.clear()
@@ -73,9 +73,9 @@ def plot_figure(ELEM):
     plt.show()
 
 #クラスの初期化
-ELEM = ElementData("ELEMENT.INDAT")
+ELEM = ElementData("ELEMENT.txt")
 
-print("ELEMENT.INDAT 読み込み")
+print("ELEMENT.txt 読み込み")
 print("NELM=",ELEM.nelm,"NNODE=",ELEM.nnode)
 
 #要素を描画
