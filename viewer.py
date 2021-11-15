@@ -64,7 +64,7 @@ def plot_figure(ELEM):
         _x.clear()
         _y.clear()
         #要素母点の表示(option化)
-        plt.plot(ELEM.xelm[i],ELEM.yelm[i], marker='.', color="k")
+        #plt.plot(ELEM.xelm[i],ELEM.yelm[i], marker='.', color="k")
 
     for i in range(0,ELEM.nnode):
         #節点の表示(option化)

@@ -15,7 +15,7 @@ xmin = 0.0
 ymin = 0.0
 xmax = 5.0
 ymax = 10.0
-elmsize = 0.25
+elmsize = 0.1
 
 #output
 #ELEMENT.txt
