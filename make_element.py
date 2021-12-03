@@ -15,7 +15,7 @@ xmin = 0.0
 ymin = 0.0
 xmax = 5.0
 ymax = 10.0
-elmsize = 0.1
+elmsize = 2.0
 
 #output
 #ELEMENT.txt
@@ -201,3 +201,4 @@ print("X座標, Y座標",file=f)
 for i in range(num_node):
     print('{}\t{:6f}\t{:6f}'.format(i,xnode[i],ynode[i]), file=f)
 f.close()
+
